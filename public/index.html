@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" ng-app="FbPageStats" >
+<head>
+	<meta charset="UTF-8">
+	<title>Starter Node and Angular</title>
+	<link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	<script src="js/app.js"></script>
+
+</head>
+<body>
+<h1>Welcome To Dashboard</h1>
+<div class="container" ng-controller="FbController">
+	<h3>Get Your Facebook Page's Statistics Here: </h3>
+		<div class="frmwrap">
+			<input ng-model="data.pid" class="form-control" placeholder="Enter FB page username or ID" />
+			<button ng-click="SubmitPage(data)" class="btn btn-primary">Submit</button>
+		</div>
+		<div class="fbresult" ng-if="pdata.pageid != NULL">
+		<hr>
+		<h4>Statistics:</h4>
+		   <ul class="mainlist">
+				<li><label>Page ID: </label>{{pdata.pageid}}</li>
+				<li><label>Page Name: </label>{{pdata.pname}}</li>
+				<li><label>Total Likes: </label>{{pdata.likes}}</li>
+				<li class="postswrap"  ng-if="pdata.postcnt > 0">
+				 <label>Most Recent Posts:</label>
+				    <ul class="sublist">
+				     <li class="post" ng-repeat="(pkey, pvalue) in pdata.posts">
+						  <div>
+							  <label>Post {{pkey+1}}:</label><br>
+							  <label>Message: </label>{{pvalue.postmsg}}
+							  <div ng-if="pvalue.postlink != ''">
+							  <a href="{{ pvalue.postlink }}" target="_blank">Know more...</a></div><br>
+							  <label>Likes: </label>{{pvalue.postlikes}}<br>
+							  <label>Shares: </label>{{pvalue.postshares}}<br>
+							  <label>Comments: </label>{{pvalue.postcomments}}<br>
+						  </div>
+						  <hr ng-if="(pkey+1) != (pdata.posts.length)">
+					   </li><!--.post-->
+				    </ul>
+				</li><!--.postswrap--> 
+			</ul>
+		</div>
+		<div class="err" ng-if="pdata.error != ''">
+		  {{pdata.error}}
+		</div>
+		
+</div>
+</body>
+</html>

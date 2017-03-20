@@ -1,0 +1,16 @@
+{
+  "name": "meanstack",
+  "version": "1.0.0",
+  "description": "App to tap public api and display data on screen",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "fb": "^1.1.1",
+	"body-parser" : "~1.4.2"
+  }
+}
