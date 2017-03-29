@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="FbPageStats" >
+<html lang="en" ng-app="FbPageStats">
 <head>
 	<meta charset="UTF-8">
 	<title>Starter Node and Angular</title>
@@ -13,8 +13,10 @@
 <div class="container" ng-controller="FbController">
 	<h3>Get Your Facebook Page's Statistics Here: </h3>
 		<div class="frmwrap">
-			<input ng-model="data.pid" class="form-control" placeholder="Enter FB page username or ID" />
+		   <form>
+			<input name="pid" ng-model="data.pid" class="form-control" placeholder="Enter FB page username or ID" />
 			<button ng-click="SubmitPage(data)" class="btn btn-primary">Submit</button>
+		   </form>
 		</div>
 		<div class="fbresult" ng-if="pdata.pageid != NULL">
 		<hr>
