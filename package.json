@@ -4,13 +4,18 @@
   "description": "App to tap public api and display data on screen",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --timeout 10000"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.2",
     "fb": "^1.1.1",
-	"body-parser" : "~1.4.2"
+    "body-parser": "~1.4.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.2.0"
   }
 }
