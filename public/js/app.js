@@ -9,19 +9,14 @@
 		function SubmitPage(data){
 		    $http
 			  .post("/api/fbstats", data)
-			  /*.success(function(pdata){
-				  $scope.pdata = pdata;  
-			  });*/
 			  .then(function(rest) {
-				console.log(rest);   
+				//console.log(rest);   
 				$scope.pdata = rest.data;  
-			  })
-			  .catch(function(fallback) {
-				 console.log('Something went wrong');
-                 //$scope.pdata = "Something went wrong";
-			  });
+			})
+			.catch(function(fallback) {
+				console.log('Something went wrong');
+                //$scope.pdata = "Something went wrong";
+			});
 		}
 	} 
 })();
-
-
